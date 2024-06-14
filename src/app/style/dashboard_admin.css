@@ -1,0 +1,40 @@
+.root{
+    background-color: rgb(236,117,235);
+    -fx-background-color:  #0e0f13;
+}
+.sidebar{
+    background-color: #fff;
+    -fx-background-color: #17181e;
+}
+.button{
+    font-size:14;
+    font-weight:normal;
+    background-color: #fff;
+    -fx-background-color: #17181e;
+    -fx-text-fill: #717276;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0.5em;
+}
+.button:hover{
+    cursor:pointer;
+    -fx-cursor: hand;
+}
+.table-view .column-header .label {
+    font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+}
+
+.table-view .cell {
+    background-color: #000;
+    border-color: #000;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-cell-size: 35;
+    -fx-background-color: #29292D;
+    -fx-border-color: #29292D;
+    -fx-text-fill: lightgray;
+}

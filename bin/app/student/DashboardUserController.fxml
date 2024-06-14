@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/dashboard_admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.student.DashboardUserController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="608.0">
+         <children>
+            <AnchorPane fx:id="sidebar" prefHeight="720.0" prefWidth="200.0" styleClass="sidebar">
+               <children>
+                  <Button layoutX="15.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Dashboard" />
+                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome User" textAlignment="CENTER" wrappingWidth="170.0">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="118.0" fitWidth="124.0" layoutX="38.0" layoutY="69.0" opacity="0.43" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/beb2.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="logout" layoutX="15.0" layoutY="657.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Logout" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="200.0" prefHeight="720.0" prefWidth="880.0">
+               <children>
+                  <ImageView fitHeight="498.0" fitWidth="882.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/umaru.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="286.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sleepin Isn't A Crime" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane fx:id="name" prefHeight="79.0" prefWidth="880.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System" wrappingWidth="402.85546875">
+                           <font>
+                              <Font name="Calibri" size="32.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current User : " wrappingWidth="118.0">
+                           <font>
+                              <Font name="Calibri Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="username" layoutX="115.0" layoutY="49.0" prefHeight="18.0" prefWidth="267.0" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="add_books" layoutY="89.0" prefHeight="631.0" prefWidth="880.0">
+                     <children>
+                        <TableView fx:id="tableView1" prefHeight="433.0" prefWidth="880.0" style="-fx-background-color: #0e0f13;">
+                           <columns>
+                              <TableColumn fx:id="no" prefWidth="38.0" style="-fx-background-color: #0e0f13;" text="No" />
+                              <TableColumn fx:id="id" prefWidth="139.0" style="-fx-background-color: #0e0f13;" text="ID" />
+                              <TableColumn fx:id="title" prefWidth="257.0" style="-fx-background-color: #0e0f13;" text="Title" />
+                              <TableColumn fx:id="author" prefWidth="279.0" style="-fx-background-color: #0e0f13;" text="Author" />
+                              <TableColumn fx:id="category" prefWidth="112.0" style="-fx-background-color: #0e0f13;" text="Category" />
+                              <TableColumn fx:id="stock" prefWidth="71.0" style="-fx-background-color: #0e0f13;" text="Stock" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label fx:id="res_buku" layoutX="285.0" layoutY="471.0" prefHeight="25.0" prefWidth="567.0" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="submitData" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="136.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Submit" />
+                        <TextField fx:id="noTextfield" layoutX="14.0" layoutY="509.0" prefHeight="36.0" prefWidth="257.0" promptText="Masukan Nomor" style="-fx-background-color: #17181e; -fx-text-fill: white;">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="14.0" layoutY="465.0" prefHeight="37.0" prefWidth="257.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Masukan No Yang Akan Dipinjam" textFill="#717276">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,18 @@
+.root{
+    background-color: rgb(236,117,235);
+    -fx-background-color: linear-gradient( to bottom, #252525, #252525);
+}
+.button{
+    font-size:14;
+    font-weight:normal;
+    background-color: #fff;
+    -fx-background-color: #e00605;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-background-radius: 2em;
+}
+.button:hover{
+    cursor:pointer;
+    -fx-cursor: hand;
+}
