@@ -8,15 +8,17 @@ public class Session {
     private LocalDateTime creationTime;
     private LocalDateTime lastAccessTime;
     private boolean valid;
+    private int level;
 
     // Constructor
-    public Session(String sessionId, String userId, String username) {
+    public Session(String sessionId, String userId, String username, int level) {
         this.sessionId = sessionId;
         this.userId = userId;
         this.username = username;
         this.creationTime = LocalDateTime.now();
         this.lastAccessTime = this.creationTime;
         this.valid = true;
+        this.level = level;
     }
 
     // Getters and setters
@@ -38,6 +40,16 @@ public class Session {
 
     public LocalDateTime getLastAccessTime() {
         return lastAccessTime;
+    }
+
+    public String getRole() {
+        if (level==0) {
+            return "admin";
+        }else if(level==1){
+            return "dosen";
+        }else{
+            return "mahasiswa";
+        }
     }
 
     public boolean isValid() {

@@ -32,7 +32,7 @@ public class mainframe {
     @FXML
     void login_student(ActionEvent event) throws IOException {
         student.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("student/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Mahasiswa/login.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root);
