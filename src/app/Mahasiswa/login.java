@@ -1,4 +1,4 @@
-package app.student;
+package app.Mahasiswa;
 
 import java.io.IOException;
 

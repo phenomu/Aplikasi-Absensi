@@ -28,16 +28,21 @@
                   </Button>
                </children>
             </VBox>
-            <Text layoutX="18.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Universitas Muhammadiyah Malang" textAlignment="CENTER" wrappingWidth="381.13671875">
+            <Text fill="#525253" layoutX="18.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplikasi Absensi Mahasiswa &amp; Dosen" textAlignment="CENTER" wrappingWidth="381.13671875">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Text>
-            <ImageView fitHeight="192.0" fitWidth="319.0" layoutX="49.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="192.0" fitWidth="319.0" layoutX="50.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/UMM_LOGO_2.png" />
                </image>
             </ImageView>
+            <Text fill="WHITE" layoutX="18.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Universitas Muhammadiyah Malang" textAlignment="CENTER" wrappingWidth="381.13671875">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
