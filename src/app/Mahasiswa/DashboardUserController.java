@@ -3,7 +3,6 @@ package app.Mahasiswa;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,10 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import app.data.Books;
+import app.data.Session;
 import app.data.Student;
 
 
 public class DashboardUserController implements Initializable {
+
     @FXML private TableView<Books> tableView1;
     @FXML private TableColumn<Books, Integer> no;
     @FXML private TableColumn<Books, String> id;
@@ -40,6 +41,11 @@ public class DashboardUserController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if(!Session.isValid()){
+            System.out.println("Illegal Access to Dashboard!");
+            System.exit(0);
+        }
         
         //Books
         no.setCellValueFactory(new PropertyValueFactory<>("no"));
@@ -108,6 +114,7 @@ public class DashboardUserController implements Initializable {
         });
 
         logout.setOnAction(e -> {
+            Session.clearSession();
             try {
                 logout.getScene().getWindow().hide();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));

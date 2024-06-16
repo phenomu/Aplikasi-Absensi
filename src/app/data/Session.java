@@ -1,66 +1,38 @@
 package app.data;
-import java.time.LocalDateTime;
 
 public class Session {
-    private String sessionId;
-    private String userId;
-    private String username;
-    private LocalDateTime creationTime;
-    private LocalDateTime lastAccessTime;
-    private boolean valid;
-    private int level;
+    public static String userId;
+    public static String Nim;
+    public static int level;
+    public static boolean valid;
 
-    // Constructor
-    public Session(String sessionId, String userId, String username, int level) {
-        this.sessionId = sessionId;
-        this.userId = userId;
-        this.username = username;
-        this.creationTime = LocalDateTime.now();
-        this.lastAccessTime = this.creationTime;
-        this.valid = true;
-        this.level = level;
+    public static void addSession(String userId, String Nim, int level) {
+        Session.userId = userId;
+        Session.Nim = Nim;
+        Session.level = level;
+        Session.valid = true;
     }
 
-    // Getters and setters
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public String getUserId() {
+    public static String getUserId() {
         return userId;
     }
 
-    public String getUsername() {
-        return username;
+    public static String getNim() {
+        return Nim;
     }
 
-    public LocalDateTime getCreationTime() {
-        return creationTime;
+    public static int getLevel() {
+        return level;
     }
 
-    public LocalDateTime getLastAccessTime() {
-        return lastAccessTime;
-    }
-
-    public String getRole() {
-        if (level==0) {
-            return "admin";
-        }else if(level==1){
-            return "dosen";
-        }else{
-            return "mahasiswa";
-        }
-    }
-
-    public boolean isValid() {
+    public static boolean isValid() {
         return valid;
     }
 
-    public void invalidate() {
-        this.valid = false;
-    }
-
-    public void updateLastAccessTime() {
-        this.lastAccessTime = LocalDateTime.now();
+    public static void clearSession() {
+        userId = null;
+        Nim = null;
+        level = 0;
+        valid = false;
     }
 }
