@@ -20,14 +20,19 @@ public class mainframe {
     String source = "";
 
     @FXML
-    void login_admin(ActionEvent event) throws IOException {
+    void login_dosen(ActionEvent event) throws IOException {
+        if(Session.isValid()){
+            source = "Mahasiswa/DashboardUserController.fxml";
+        }else{
+            source = "Mahasiswa/login.fxml";
+        }
         admin.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(source));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Admin Login");
+        stage.setTitle("Login Dosen");
         stage.show();
     }
 
@@ -44,7 +49,7 @@ public class mainframe {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Student Login");
+        stage.setTitle("Login Mahasiswa");
         stage.show();
     }
 

@@ -16,7 +16,7 @@
          <children>
             <VBox alignment="CENTER" layoutY="288.0" prefHeight="168.0" prefWidth="418.0">
                <children>
-                  <Button id="admin" fx:id="admin" alignment="CENTER" lineSpacing="3.0" mnemonicParsing="false" onAction="#login_admin" prefHeight="43.0" prefWidth="227.0" text="Login Sebagai Dosen" textAlignment="CENTER">
+                  <Button id="admin" fx:id="admin" alignment="CENTER" lineSpacing="3.0" mnemonicParsing="false" onAction="#login_dosen" prefHeight="43.0" prefWidth="227.0" text="Login Sebagai Dosen" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
