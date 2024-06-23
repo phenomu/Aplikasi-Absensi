@@ -12,14 +12,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/dashboard_admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.student.DashboardUserController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/dashboard_admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Dosen.DashboardDosenController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="608.0">
          <children>
             <AnchorPane fx:id="sidebar" prefHeight="720.0" prefWidth="200.0" styleClass="sidebar">
                <children>
                   <Button layoutX="15.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Dashboard" />
-                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome User" textAlignment="CENTER" wrappingWidth="170.0">
+                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Dosen" textAlignment="CENTER" wrappingWidth="170.0">
                      <font>
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
@@ -46,7 +46,7 @@
                   </Text>
                   <AnchorPane fx:id="name" prefHeight="79.0" prefWidth="880.0">
                      <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System" wrappingWidth="402.85546875">
+                        <Text fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard Absensi Dosen" wrappingWidth="402.85546875">
                            <font>
                               <Font name="Calibri" size="32.0" />
                            </font>

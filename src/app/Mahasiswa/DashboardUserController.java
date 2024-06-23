@@ -2,7 +2,16 @@ package app.Mahasiswa;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,108 +19,165 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import app.data.Books;
+import javafx.util.Callback;
+import app.config.Conn;
+import app.data.Jadwal;
 import app.data.Session;
-import app.data.Student;
 
 
 public class DashboardUserController implements Initializable {
 
-    @FXML private TableView<Books> tableView1;
-    @FXML private TableColumn<Books, Integer> no;
-    @FXML private TableColumn<Books, String> id;
-    @FXML private TableColumn<Books, String> title;
-    @FXML private TableColumn<Books, String> author;
-    @FXML private TableColumn<Books, String> category;
-    @FXML private TableColumn<Books, Integer> stock;
-    @FXML private Button submitData;
-    @FXML private AnchorPane add_books;
-    @FXML private TextField noTextfield;
-    @FXML private Label res_buku;
-    @FXML private Label username;
-    @FXML private Button logout;
+    Connection connection = null;
+    String uname; 
     
+    private ObservableList<Jadwal> Jadwals = FXCollections.observableArrayList();
+    @FXML private TableView<Jadwal> tableView1;
+    @FXML private TableColumn<Jadwal, Integer> id;
+    @FXML private TableColumn<Jadwal, Integer> no;
+    @FXML private TableColumn<Jadwal, String> matkul;
+    @FXML private TableColumn<Jadwal, String> sks;
+    @FXML private TableColumn<Jadwal, String> kelas;
+    @FXML private TableColumn<Jadwal, String> dosen;
+    @FXML private TableColumn<Jadwal, String> jam;
+    @FXML private TableColumn<Jadwal, String> ruang;
+    @FXML private AnchorPane add_books;
+    @FXML private Label nim;
+    @FXML private Label name;
+    @FXML private Label alert;
+    @FXML private Button logout;
+    @FXML private TableColumn<Jadwal, Void> presensi;
+    PreparedStatement statement;
 
+    public boolean show(){
+        try{
+            connection = Conn.getConnection();
+            String query = "SELECT m.nama AS matkul,m.sks AS sks,m.jam AS jam,m.ruang AS ruang,m.kelas AS kelas,m.id AS id,d.nama AS dosen FROM mahasiswa ma JOIN mahasiswa_matakuliah mm ON ma.id = mm.mahasiswa_id JOIN matakuliah m ON mm.matakuliah_id = m.id JOIN dosen_matakuliah dm ON m.id = dm.matakuliah_id JOIN dosen d ON dm.dosen_id = d.id WHERE ma.id = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, Session.userId);
+            try(ResultSet res = statement.executeQuery()){
+                int i = 1;
+                while(res.next()){
+                    Jadwals.add(new Jadwal(res.getInt("id"),i,res.getString("matkul"),res.getString("sks"),res.getString("kelas"),res.getString("dosen"),res.getString("ruang"),res.getString("jam")));
+                    i++;
+                }
+                    return (true);
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+                return false;
+            }
+    }
+
+    public ArrayList<Integer> getListActive(){
+        try{
+            connection = Conn.getConnection();
+            String query = "SELECT m.id FROM mahasiswa ma JOIN mahasiswa_matakuliah mm ON ma.id = mm.mahasiswa_id JOIN matakuliah m ON mm.matakuliah_id = m.id  WHERE ma.id =? AND m.active = 1";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, Session.userId);
+            try(ResultSet res = statement.executeQuery()){
+                ArrayList<Integer> idArray = new ArrayList<>();
+                while(res.next()){
+                    idArray.add(res.getInt("id"));
+                }
+                    return idArray;
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+        return null;
+    }
+
+    public boolean present(int id){
+        LocalDate today = LocalDate.now();
+        String dateString = today.toString();
+        try{
+            connection = Conn.getConnection();
+            String query = "INSERT INTO absensi (mahasiswa_id, matakuliah_id, tanggal, hadir) SELECT ?, ?, ?, 1 FROM DUAL WHERE NOT EXISTS ( SELECT 1 FROM absensi WHERE tanggal =? AND matakuliah_id =? AND mahasiswa_id =?);";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, Integer.valueOf(Session.userId));
+            statement.setInt(2, id);
+            statement.setString(3, dateString);
+            //Untuk mencegah data duplicate
+            statement.setString(4, dateString);
+            statement.setInt(5, id);
+            statement.setInt(6, Integer.valueOf(Session.userId));
+            int affectedRows = statement.executeUpdate();
+            if(affectedRows>0){
+                return true;
+            }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+        
+        return false;
+    }
+        
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        
+        //Cek Apakah User Yang Masuk Telah Memiliki Sesi Yang Valid
         if(!Session.isValid()){
             System.out.println("Illegal Access to Dashboard!");
             System.exit(0);
         }
-        
-        //Books
-        no.setCellValueFactory(new PropertyValueFactory<>("no"));
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        author.setCellValueFactory(new PropertyValueFactory<>("author"));
-        category.setCellValueFactory(new PropertyValueFactory<>("category"));
-        stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        
-        tableView1.setItems(Books.Books);
-        
-
-        //setName
-        String uname = "";
-        for (Student students : Student.Student) {
-            if(login.getUser().equals(students.getNim())){
-                uname = students.getNamaMahasiswa();
-                break;
-            }
-        }
-        username.setText(uname);
-
-        submitData.setOnAction(e ->{
-
-            try {
-                if(noTextfield.getText() != null){
-                    for (Student students : Student.Student) {
-                        if(login.getUser().equals(students.getNim())){
-                            students.setTotalBukuDipinjam(students.getTotalBukuDipinjam()+1);
-                            break;
-                        }
-                    }
+        show();
                     
-                    int tmp_check = 0;
-                    for (Books books : Books.Books) {
-                        if(Integer.valueOf(noTextfield.getText()) == (books.getNo())){
-                            if (books.getStock() != 0){
-                                books.setStock(books.getStock()-1);
-                                res_buku.setTextFill(Color.GREEN);
-                                res_buku.setText("Buku Dengan Judul "+books.getTitle()+" Berhasil Dipinjam!");
-                                tmp_check = 1;
-                                break;
-                            }else{
-                                res_buku.setTextFill(Color.FIREBRICK);
-                                res_buku.setText("Stok Buku Dengan Judul "+books.getTitle()+" Sedang Kosong!");
-                                tmp_check = 1;
-                                break;
+        // id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        no.setCellValueFactory(new PropertyValueFactory<>("no"));
+        matkul.setCellValueFactory(new PropertyValueFactory<>("matkul"));
+        sks.setCellValueFactory(new PropertyValueFactory<>("sks"));
+        kelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+        dosen.setCellValueFactory(new PropertyValueFactory<>("dosen"));
+        ruang.setCellValueFactory(new PropertyValueFactory<>("ruang"));
+        jam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+        //Function untuk menambahkan button pada kolom presensi
+        presensi.setCellFactory((Callback<TableColumn<Jadwal, Void>, TableCell<Jadwal, Void>>) new Callback<TableColumn<Jadwal, Void>, TableCell<Jadwal, Void>>() {
+            @Override
+            public TableCell<Jadwal, Void> call(final TableColumn<Jadwal, Void> presensi) {
+                final TableCell<Jadwal, Void> cell = new TableCell<Jadwal, Void>() {
+                    final Button btn = new Button("Present");
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Jadwal jadwal = getTableView().getItems().get(getIndex());
+                            List<Integer> matkulValues = getListActive();
+                            for (Integer matkul : matkulValues) {
+                                if (matkul == jadwal.getId()) {
+                                    btn.setOnAction(event -> {
+                                        System.out.println("Interaksi Terhadap ID : " + jadwal.getId() + " & Matkul : " + jadwal.getMatkul());
+                                        if(present(jadwal.getId())){
+                                            alert.setTextFill(Color.GREEN);
+                                            alert.setText("Presensi Berhasil Dilakukan");
+                                            tableView1.refresh();
+                                        }else{
+                                            alert.setTextFill(Color.FIREBRICK);
+                                            alert.setText("Anda Sudah Melakukan Presensi");
+                                            tableView1.refresh();
+                                        }
+                                    });
+                                    setGraphic(btn);
+                                }
                             }
                         }
                     }
-                    if (tmp_check==0){
-                        res_buku.setTextFill(Color.FIREBRICK);
-                        res_buku.setText("Buku Yang Diminta Tidak Ada!");
-                    }else{
-                        tableView1.refresh();
-                    }
-                }else{
-                    res_buku.setTextFill(Color.FIREBRICK);
-                    res_buku.setText("Gagal Meminjam Buku!");
-                }
-            } catch (Exception er) {
-                res_buku.setTextFill(Color.FIREBRICK);
-                res_buku.setText("Tidak Ada Data Yang Dimasukkan!");
+                };
+                return cell;
             }
-
         });
+        tableView1.setItems(Jadwals);
+        
+        nim.setText(Session.getNim());
+        name.setText(Session.getName());
 
         logout.setOnAction(e -> {
             Session.clearSession();
@@ -129,7 +195,6 @@ public class DashboardUserController implements Initializable {
                 e1.printStackTrace();
             }
         });
-
 
     }
 

@@ -28,7 +28,7 @@
     -fx-text-alignment: CENTER;
 }
 
-.table-view .cell {
+.table-view .cell, .table-view .column-header{
     background-color: #000;
     border-color: #000;
     -fx-alignment: CENTER;

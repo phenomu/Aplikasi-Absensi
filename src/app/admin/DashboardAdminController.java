@@ -20,7 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import app.data.Student;
-import app.data.Books;
+import app.data.Jadwal;
 
 
 public class DashboardAdminController implements Initializable {
@@ -31,13 +31,13 @@ public class DashboardAdminController implements Initializable {
     @FXML private TableColumn<Student, String> jurusan;
     @FXML private TableColumn<Student, String> prodi;
     @FXML private TableColumn<Student, Integer> totalBukuDipinjamColumn;
-    @FXML private TableView<Books> tableView1;
-    @FXML private TableColumn<Books, Integer> no;
-    @FXML private TableColumn<Books, String> id;
-    @FXML private TableColumn<Books, String> title;
-    @FXML private TableColumn<Books, String> author;
-    @FXML private TableColumn<Books, String> category;
-    @FXML private TableColumn<Books, Integer> stock;
+    @FXML private TableView<Jadwal> tableView1;
+    @FXML private TableColumn<Jadwal, Integer> no;
+    @FXML private TableColumn<Jadwal, String> id;
+    @FXML private TableColumn<Jadwal, String> title;
+    @FXML private TableColumn<Jadwal, String> author;
+    @FXML private TableColumn<Jadwal, String> category;
+    @FXML private TableColumn<Jadwal, Integer> stock;
     @FXML private Button add_book;
     @FXML private Button add_student;
     @FXML private Button add_data_students;
@@ -77,8 +77,8 @@ public class DashboardAdminController implements Initializable {
         stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         
 
-        tableView.setItems(Student.Student);
-        tableView1.setItems(Books.Books);
+        // tableView.setItems(Student.Student);
+        // tableView1.setItems(Jadwal.Books);
 
         // Take User Info setiap data
         // Student selectedStudent = null;
@@ -137,11 +137,11 @@ public class DashboardAdminController implements Initializable {
         });
 
         add_data_books.setOnAction(e -> {
-            Books selectedBooks = null;
-            for (Books books : Books.Books) {
-                selectedBooks = books;
-            }
-            int no_tmp_2 = selectedBooks.getNo();
+            // Jadwal selectedBooks = null;
+            // for (Jadwal books : Jadwal.Books) {
+                // selectedBooks = books;
+            // }
+            // int no_tmp_2 = selectedBooks.getNo();
             String alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
@@ -155,11 +155,11 @@ public class DashboardAdminController implements Initializable {
                     sb.append(randomChar);
                 }
             }
-            String id = sb.toString();
+            // String id = sb.toString();
             try {
                 res_buku.setTextFill(Color.GREEN);
                 res_buku.setText("Data Berhasil Ditambahkan!");
-                Books.Books.add(new Books(no_tmp_2+1, id, titleTextfield.getText(), authorTextfield.getText(), categoryTextfield.getText(), Integer.valueOf(stockTextfield.getText())));
+                // Jadwal.Books.add(new Jadwal(no_tmp_2+1, id, titleTextfield.getText(), authorTextfield.getText(), categoryTextfield.getText(), Integer.valueOf(stockTextfield.getText())));
             } catch (Exception d) {
                 res_buku.setTextFill(Color.FIREBRICK);
                 res_buku.setText("Data Gagal Ditambahkan!");

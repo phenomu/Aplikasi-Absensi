@@ -22,9 +22,9 @@ public class mainframe {
     @FXML
     void login_dosen(ActionEvent event) throws IOException {
         if(Session.isValid()){
-            source = "Mahasiswa/DashboardUserController.fxml";
+            source = "Dosen/DashboardDosenController.fxml";
         }else{
-            source = "Mahasiswa/login.fxml";
+            source = "Dosen/login.fxml";
         }
         admin.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(source));

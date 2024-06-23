@@ -41,7 +41,7 @@ public class login {
     public boolean validate(String nim, String password){
         try{
             connection = Conn.getConnection();
-            String query = "SELECT * FROM mahasiswa WHERE nim = ? AND password = ?";
+            String query = "SELECT * FROM dosen WHERE nim = ? AND password = ?";
             statement = connection.prepareStatement(query);
             statement.setString(1, nim);
             statement.setString(2, password);
@@ -49,7 +49,7 @@ public class login {
                 res.next();
                 System.out.println("User With ID "+res.getString("id")+" Has Logged In!");
                 if (!Session.isValid()) {
-                    Session.addSession(res.getString("id"), res.getString("nim"), 2);
+                    Session.addSession(res.getString("id"), res.getString("nim"), query, 2);
                 }
                 return (true);
             }
@@ -61,13 +61,13 @@ public class login {
     public void LoadFXML(){
         try {
             // submit.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardUserController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardDosenController.fxml"));
             Parent root;
             root = (Parent) loader.load();
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Dashboard User");
+            stage.setTitle("Dashboard Dosen");
             stage.show();
         }catch (IOException e1) {
             e1.printStackTrace();
@@ -77,7 +77,7 @@ public class login {
     public boolean addLog(String username,Boolean is_login){
         try{
             connection = Conn.getConnection();
-            String query = "INSERT INTO log (id, username, time_login, is_login) SELECT NULL, m.nim, NOW(), ? FROM mahasiswa m WHERE m.nim = ?";
+            String query = "INSERT INTO log (id, username, time_login, is_login) SELECT NULL, m.nim, NOW(), ? FROM dosen m WHERE m.nim = ?";
             statement = connection.prepareStatement(query);
             statement.setBoolean(1, is_login);
             statement.setString(2, username);
