@@ -49,7 +49,7 @@ public class login {
                 res.next();
                 System.out.println("User With ID "+res.getString("id")+" Has Logged In!");
                 if (!Session.isValid()) {
-                    Session.addSession(res.getString("id"), res.getString("nim"), query, 2);
+                    Session.addSession(res.getString("id"), res.getString("nim"), res.getString("nama"), 2);
                 }
                 return (true);
             }
@@ -77,7 +77,7 @@ public class login {
     public boolean addLog(String username,Boolean is_login){
         try{
             connection = Conn.getConnection();
-            String query = "INSERT INTO log (id, username, time_login, is_login) SELECT NULL, m.nim, NOW(), ? FROM dosen m WHERE m.nim = ?";
+            String query = "INSERT INTO log (id, username, time_login, is_login) SELECT NULL, m.nim, NOW(), ? FROM mahasiswa m WHERE m.nim = ?";
             statement = connection.prepareStatement(query);
             statement.setBoolean(1, is_login);
             statement.setString(2, username);

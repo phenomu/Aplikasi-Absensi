@@ -23,9 +23,9 @@
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="118.0" fitWidth="124.0" layoutX="38.0" layoutY="69.0" opacity="0.43" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="53.0" fitWidth="157.0" layoutX="19.0" layoutY="88.0" opacity="0.43" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/beb2.png" />
+                        <Image url="@../../img/UMM_LOGO_2.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="logout" layoutX="18.0" layoutY="708.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Logout" />

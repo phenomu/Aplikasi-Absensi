@@ -189,7 +189,7 @@ public class DashboardUserController implements Initializable {
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-                stage.setTitle("User Login");
+                stage.setTitle("Mahasiswa Login");
                 stage.show();
             } catch (IOException e1) {
                 e1.printStackTrace();
