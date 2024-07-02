@@ -21,7 +21,6 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -30,7 +29,18 @@ import app.data.JadwalDosen;
 import app.data.Session;
 
 
+
 public class DashboardDosenController implements Initializable {
+
+    private static DashboardDosenController instance;
+
+    public static DashboardDosenController getInstance() {
+        return instance;
+    }
+
+    public DashboardDosenController() {
+        instance = this;
+    }
 
     Connection connection = null;
     String uname; 
@@ -45,16 +55,25 @@ public class DashboardDosenController implements Initializable {
     @FXML private TableColumn<JadwalDosen, String> jam;
     @FXML private TableColumn<JadwalDosen, String> ruang;
     @FXML private TableColumn<JadwalDosen, Integer> status;
-    @FXML private AnchorPane add_books;
     @FXML private Label nim;
     @FXML private Label name;
     @FXML private Label alert;
     @FXML private Button logout;
+    @FXML private Button addData;
+    @FXML private Button hitungAK;
     @FXML private TableColumn<JadwalDosen, Void> presensi;
+    @FXML private TableColumn<JadwalDosen, Void> actions;
+
     PreparedStatement statement;
     String statuss;
 
+    public void refreshTableView() {
+        show(); // Call the show method to refresh the data
+        tableView1.refresh(); // Refresh the TableView
+    }
+
     public boolean show(){
+        JadwalDosens.clear();
         try{
             connection = Conn.getConnection();
             String query = "SELECT m.nama AS matkul, m.sks AS sks, m.jam AS jam, m.ruang AS ruang, m.kelas AS kelas, m.id AS id, m.active AS status FROM dosen d JOIN dosen_matakuliah dm ON d.id = dm.dosen_id JOIN matakuliah m ON dm.matakuliah_id = m.id WHERE d.id = ?;";
@@ -172,6 +191,43 @@ public class DashboardDosenController implements Initializable {
                 return cell;
             }
         });
+        actions.setCellFactory((Callback<TableColumn<JadwalDosen, Void>, TableCell<JadwalDosen, Void>>) new Callback<TableColumn<JadwalDosen, Void>, TableCell<JadwalDosen, Void>>() {
+            @Override
+            public TableCell<JadwalDosen, Void> call(final TableColumn<JadwalDosen, Void> actions) {
+                final TableCell<JadwalDosen, Void> cell = new TableCell<JadwalDosen, Void>() {
+                    final Button btn = new Button("Edit");
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            JadwalDosen JadwalDosen = getTableView().getItems().get(getIndex());
+                            btn.setOnAction(event -> {
+                                System.out.println("Interaksi Terhadap ID : " + JadwalDosen.getId() + " & Matkul : " + JadwalDosen.getMatkul());
+                                try {
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editData.fxml"));
+                                    Parent root;
+                                    root = (Parent) loader.load();
+                                    editData controller = loader.getController();
+                                    controller.initData(Integer.valueOf(JadwalDosen.getId()),JadwalDosen.getMatkul(),Integer.valueOf(JadwalDosen.getSks()),JadwalDosen.getKelas(), JadwalDosen.getRuang(), JadwalDosen.getJam());
+                                    Stage stage = new Stage();
+                                    Scene scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.setTitle("Edit Data");
+                                    stage.show();
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                                tableView1.refresh();
+                            });
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
         tableView1.setItems(JadwalDosens);
         
         nim.setText(Session.getNim());
@@ -194,6 +250,36 @@ public class DashboardDosenController implements Initializable {
             }
         });
 
+        addData.setOnAction(e -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("addData.fxml"));
+                Parent root;
+                root = (Parent) loader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Tambah Data");
+                stage.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        hitungAK.setOnAction(e -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("hitungAK.fxml"));
+                Parent root;
+                root = (Parent) loader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Program Penghitung Nilai Akhir");
+                stage.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
     }
 
 }

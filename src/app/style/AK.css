@@ -1,0 +1,25 @@
+.root{
+    background-color: rgb(236,117,235);
+    -fx-background-color:  #0e0f13;
+}
+.sidebar{
+    background-color: #fff;
+    -fx-background-color: #17181e;
+}
+.label{
+    -fx-text-fill:#fff;
+}
+.button{
+    font-size:14;
+    font-weight:normal;
+    background-color: #fff;
+    -fx-background-color: #17181e;
+    -fx-text-fill: #717276;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5em;
+}
+.button:hover{
+    cursor:pointer;
+    -fx-cursor: hand;
+}

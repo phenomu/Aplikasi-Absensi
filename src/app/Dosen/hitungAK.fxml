@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="415.0" stylesheets="@../style/AK.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Dosen.hitungAK">
+   <children>
+      <AnchorPane prefHeight="561.0" prefWidth="410.0" style="-fx-background-color: linear-gradient( to top, #17181e, #17181e);">
+         <children>
+            <Label prefHeight="52.0" prefWidth="400.0" style="-fx-alignment: center;-fx-text-fill: #fff" text="Program Penghitung Nilai Akhir" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nim" layoutX="159.0" layoutY="84.0" prefHeight="30.0" prefWidth="230.0" promptText="NIM" />
+            <Label fx:id="res" alignment="CENTER" layoutX="8.0" layoutY="403.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="RED" />
+            <TextField fx:id="nama" layoutX="159.0" layoutY="135.0" prefHeight="30.0" prefWidth="230.0" promptText="Nama Mahasiswa" />
+            <TextField fx:id="absen" layoutX="159.0" layoutY="185.0" prefHeight="30.0" prefWidth="230.0" promptText="0" />
+            <TextField fx:id="tugas" layoutX="158.0" layoutY="241.0" prefHeight="30.0" prefWidth="230.0" promptText="0" />
+            <TextField fx:id="uts" layoutX="158.0" layoutY="295.0" prefHeight="30.0" prefWidth="230.0" promptText="0" />
+            <TextField fx:id="uas" layoutX="159.0" layoutY="348.0" prefHeight="30.0" prefWidth="230.0" promptText="0" />
+            <Button fx:id="submit" layoutX="18.0" layoutY="507.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-text-fill: #fff;" text="SUBMIT" />
+            <Button fx:id="reset" layoutX="151.0" layoutY="507.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-text-fill: #fff;" text="RESET" textFill="WHITE" />
+            <Button fx:id="logout" layoutX="285.0" layoutY="507.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-text-fill: #fff;" text="BACK" />
+            <Label layoutX="18.0" layoutY="87.0" prefHeight="25.0" prefWidth="115.0" text="NIM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="138.0" prefHeight="25.0" prefWidth="132.0" style="-fx-alignment: center;" text="Nama Mahasiswa" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="188.0" prefHeight="25.0" prefWidth="132.0" text="Nilai Absen" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="244.0" prefHeight="25.0" prefWidth="132.0" text="Nilai Tugas" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="298.0" prefHeight="25.0" prefWidth="132.0" text="Nilai UTS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="351.0" prefHeight="25.0" prefWidth="132.0" text="Nilai UAS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="huas" layoutX="18.0" layoutY="399.0" prefHeight="25.0" prefWidth="95.0" text="Nilai UAS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="hket" layoutX="18.0" layoutY="443.0" prefHeight="25.0" prefWidth="95.0" text="Keterangan" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="hgrade" layoutX="266.0" layoutY="399.0" prefHeight="25.0" prefWidth="58.0" text="Grade" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ketuas" layoutX="103.0" layoutY="399.0" prefHeight="25.0" prefWidth="95.0" text="ketnilai" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ketketerangan" layoutX="113.0" layoutY="443.0" prefHeight="25.0" prefWidth="263.0" text="ketket" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ketgrade" layoutX="324.0" layoutY="399.0" prefHeight="25.0" prefWidth="58.0" text="A" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

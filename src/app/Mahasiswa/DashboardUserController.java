@@ -78,7 +78,7 @@ public class DashboardUserController implements Initializable {
     public ArrayList<Integer> getListActive(){
         try{
             connection = Conn.getConnection();
-            String query = "SELECT m.id FROM mahasiswa ma JOIN mahasiswa_matakuliah mm ON ma.id = mm.mahasiswa_id JOIN matakuliah m ON mm.matakuliah_id = m.id  WHERE ma.id =? AND m.active = 1";
+            String query = "SELECT m.id FROM mahasiswa ma JOIN mahasiswa_matakuliah mm ON ma.id = mm.mahasiswa_id JOIN matakuliah m ON mm.matakuliah_id = m.id WHERE ma.id =? AND m.active = 1";
             statement = connection.prepareStatement(query);
             statement.setString(1, Session.userId);
             try(ResultSet res = statement.executeQuery()){

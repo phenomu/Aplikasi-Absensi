@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="400.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Dosen.addData">
+   <children>
+      <AnchorPane prefHeight="570.0" prefWidth="400.0">
+         <children>
+            <TextField fx:id="matkuls" layoutX="139.0" layoutY="84.0" prefHeight="30.0" prefWidth="250.0" promptText="matakuliah" />
+            <Label fx:id="res" alignment="CENTER" layoutY="398.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="RED" />
+            <TextField fx:id="skss" layoutX="139.0" layoutY="135.0" prefHeight="30.0" prefWidth="250.0" promptText="sks" />
+            <TextField fx:id="kelass" layoutX="139.0" layoutY="185.0" prefHeight="30.0" prefWidth="250.0" promptText="kelas" />
+            <TextField fx:id="ruangs" layoutX="138.0" layoutY="241.0" prefHeight="30.0" prefWidth="250.0" promptText="ruang" />
+            <TextField fx:id="jams" layoutX="138.0" layoutY="295.0" prefHeight="30.0" prefWidth="250.0" promptText="jam" />
+            <Button fx:id="submit" layoutX="89.0" layoutY="438.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Submit" />
+            <Button fx:id="logout" layoutX="89.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Kembali" />
+            <Label layoutX="13.0" layoutY="84.0" prefHeight="30.0" prefWidth="150.0" text="Matakuliah" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="135.0" prefHeight="30.0" prefWidth="150.0" text="SKS" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="185.0" prefHeight="30.0" prefWidth="150.0" text="Kelas" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="241.0" prefHeight="30.0" prefWidth="150.0" text="Ruang" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="295.0" prefHeight="30.0" prefWidth="150.0" text="Jam" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

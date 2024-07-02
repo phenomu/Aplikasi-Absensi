@@ -60,7 +60,6 @@ public class login {
 
     public void LoadFXML(){
         try {
-            // submit.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardDosenController.fxml"));
             Parent root;
             root = (Parent) loader.load();
