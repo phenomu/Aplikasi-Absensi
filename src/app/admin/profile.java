@@ -76,7 +76,7 @@ public class profile implements Initializable{
             statement.setString(1, nama);
             statement.setString(2, username);
             statement.setString(3, password);
-            statement.setInt(4, Integer.valueOf(Session.userId));
+            statement.setInt(4, admin_id);
             int res = statement.executeUpdate();
             if(res > 0){
                 System.out.println("Data Updated!");
