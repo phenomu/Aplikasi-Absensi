@@ -18,7 +18,7 @@
             <AnchorPane fx:id="sidebar" prefHeight="768.0" prefWidth="200.0" styleClass="sidebar">
                <children>
                   <Button layoutX="15.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Dashboard" />
-                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome User" textAlignment="CENTER" wrappingWidth="170.0">
+                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Dosen" textAlignment="CENTER" wrappingWidth="170.0">
                      <font>
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
@@ -69,8 +69,9 @@
                               <TableColumn fx:id="kelas" prefWidth="70.3333740234375" style="-fx-background-color: #0e0f13;" text="Kelas" />
                               <TableColumn fx:id="ruang" prefWidth="147.33331298828125" style="-fx-background-color: #0e0f13;" text="Ruang" />
                               <TableColumn fx:id="jam" prefWidth="177.333251953125" style="-fx-background-color: #0e0f13;" text="jam" />
-                              <TableColumn fx:id="status" prefWidth="254.0" style="-fx-background-color: #0e0f13;" text="status" />
-                              <TableColumn fx:id="presensi" prefWidth="115.0" style="-fx-background-color: #0e0f13;" text="Presensi" />
+                              <TableColumn fx:id="status" prefWidth="239.0" style="-fx-background-color: #0e0f13;" text="status" />
+                              <TableColumn fx:id="id" prefWidth="49.0" style="-fx-background-color: #0e0f13;" text="id" />
+                              <TableColumn fx:id="presensi" prefWidth="145.0" style="-fx-background-color: #0e0f13;" text="Presensi" />
                               <TableColumn fx:id="actions" prefWidth="84.0" style="-fx-background-color: #0e0f13;" text="Action" />
                            </columns>
                            <columnResizePolicy>

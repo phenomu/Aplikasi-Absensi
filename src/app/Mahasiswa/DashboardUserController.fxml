@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -79,6 +80,8 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="idkelas" alignment="CENTER" layoutX="33.0" layoutY="353.0" prefHeight="30.0" prefWidth="89.0" promptText="ID Kelas" styleClass="button" />
+                        <Button fx:id="submitid" layoutX="136.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #717276; -fx-text-fill: #000;" text="Submit Data" />
                      </children>
                   </AnchorPane>
                </children>

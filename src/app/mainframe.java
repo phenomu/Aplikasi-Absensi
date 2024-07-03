@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 public class mainframe {
 
     @FXML
+    private Button dosen;
+    @FXML
     private Button admin;
     @FXML
     private Button student;
@@ -26,13 +28,30 @@ public class mainframe {
         }else{
             source = "Dosen/login.fxml";
         }
-        admin.getScene().getWindow().hide();
+        dosen.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(source));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Login Dosen");
+        stage.show();
+    }
+
+    @FXML
+    void login_admin(ActionEvent event) throws IOException {
+        if(Session.isValid()){
+            source = "Mahasiswa/DashboardAdminController.fxml";
+        }else{
+            source = "admin/login.fxml";
+        }
+        admin.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(source));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Login admin");
         stage.show();
     }
 

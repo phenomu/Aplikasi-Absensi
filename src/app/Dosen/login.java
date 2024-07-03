@@ -49,7 +49,7 @@ public class login {
                 res.next();
                 System.out.println("User With ID "+res.getString("id")+" Has Logged In!");
                 if (!Session.isValid()) {
-                    Session.addSession(res.getString("id"), res.getString("nim"), res.getString("nama"), 2);
+                    Session.addSession(res.getString("id"), res.getString("nim"), res.getString("nama"), 1);
                 }
                 return (true);
             }

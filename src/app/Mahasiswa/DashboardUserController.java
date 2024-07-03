@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -51,11 +52,15 @@ public class DashboardUserController implements Initializable {
     @FXML private Label nim;
     @FXML private Label name;
     @FXML private Label alert;
+    @FXML private TextField idkelas;
+    @FXML private Button submitid;
     @FXML private Button logout;
     @FXML private TableColumn<Jadwal, Void> presensi;
     PreparedStatement statement;
+    
 
     public boolean show(){
+        Jadwals.clear();
         try{
             connection = Conn.getConnection();
             String query = "SELECT m.nama AS matkul,m.sks AS sks,m.jam AS jam,m.ruang AS ruang,m.kelas AS kelas,m.id AS id,d.nama AS dosen FROM mahasiswa ma JOIN mahasiswa_matakuliah mm ON ma.id = mm.mahasiswa_id JOIN matakuliah m ON mm.matakuliah_id = m.id JOIN dosen_matakuliah dm ON m.id = dm.matakuliah_id JOIN dosen d ON dm.dosen_id = d.id WHERE ma.id = ?";
@@ -118,9 +123,32 @@ public class DashboardUserController implements Initializable {
         
         return false;
     }
+
+    public boolean addKelas(int id){
+        try{
+            connection = Conn.getConnection();
+            String query = "INSERT INTO mahasiswa_matakuliah (mahasiswa_id, matakuliah_id) SELECT ?, ? FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM mahasiswa_matakuliah WHERE mahasiswa_id = ? AND matakuliah_id = ?)";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, Integer.valueOf(Session.userId));
+            statement.setInt(2, id);
+            statement.setInt(3, Integer.valueOf(Session.userId));
+            statement.setInt(4, id);
+            int affectedRows = statement.executeUpdate();
+            if(affectedRows>0){
+                return true;
+            }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+        
+        return false;
+    }
         
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        nim.setText(Session.getNim());
+        name.setText(Session.getName());
         
         //Cek Apakah User Yang Masuk Telah Memiliki Sesi Yang Valid
         if(!Session.isValid()){
@@ -176,8 +204,19 @@ public class DashboardUserController implements Initializable {
         });
         tableView1.setItems(Jadwals);
         
-        nim.setText(Session.getNim());
-        name.setText(Session.getName());
+        submitid.setOnAction(e -> {
+            int idkelass = Integer.valueOf(idkelas.getText());
+            if(addKelas(idkelass)){
+                alert.setTextFill(Color.GREEN);
+                alert.setText("anda berhasil ditambahkan ke Kelas");
+                show();
+                tableView1.refresh();
+            }else{
+                alert.setTextFill(Color.FIREBRICK);
+                alert.setText("anda gagal ditambahkan ke kelas");
+                tableView1.refresh();
+            }
+        });
 
         logout.setOnAction(e -> {
             Session.clearSession();

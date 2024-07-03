@@ -9,32 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="400.0" style="-fx-border-color: pink;" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.admin.login">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="400.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.admin.login">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="570.0" prefWidth="400.0">
          <children>
-            <Label alignment="CENTER" layoutX="53.0" layoutY="20.0" prefHeight="43.0" prefWidth="294.0" text="Administrator Login Page" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="53.0" layoutY="480.0" prefHeight="43.0" prefWidth="294.0" text="Login Mahasiswa" textAlignment="CENTER">
                <font>
                   <Font name="Impact" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="90.0" layoutY="220.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="90.0" layoutY="266.0" prefHeight="30.0" prefWidth="220.0" promptText="password" />
+            <TextField fx:id="username" layoutX="90.0" layoutY="209.0" prefHeight="30.0" prefWidth="220.0" promptText="NIM" />
+            <PasswordField fx:id="password" layoutX="90.0" layoutY="250.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
             <Button fx:id="submit" layoutX="90.0" layoutY="325.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Login" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="163.0" fitWidth="287.0" layoutX="65.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/beb2.png" />
+                  <Image url="@../../img/banner.png" />
                </image>
             </ImageView>
-            <Text layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System" textAlignment="CENTER" wrappingWidth="400.0">
-               <font>
-                  <Font name="Calibri" size="14.0" />
-               </font>
-            </Text>
-            <Label fx:id="res" alignment="CENTER" layoutY="432.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="RED" />
-            <Button fx:id="back" layoutX="90.0" layoutY="376.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Kembali" />
+            <Label fx:id="res" alignment="CENTER" layoutX="-1.0" layoutY="429.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="RED" />
+            <Button fx:id="logout" layoutX="89.0" layoutY="376.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Kembali" />
          </children>
       </AnchorPane>
    </children>

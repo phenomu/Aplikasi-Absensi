@@ -2,190 +2,41 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/dashboard_admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.admin.DashboardAdminController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="400.0" stylesheets="@../style/dashboard_admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.admin.DashboardAdminController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="608.0">
+      <AnchorPane prefHeight="561.0" prefWidth="400.0">
          <children>
-            <AnchorPane fx:id="sidebar" prefHeight="720.0" prefWidth="200.0" styleClass="sidebar">
-               <children>
-                  <Button layoutX="15.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Dashboard" />
-                  <Button fx:id="add_student" layoutX="15.0" layoutY="252.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Add Student" />
-                  <Button fx:id="add_book" layoutX="15.0" layoutY="301.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Add Book" />
-                  <Text fill="#717276" fontSmoothingType="LCD" layoutX="15.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Admin" textAlignment="CENTER" wrappingWidth="170.0">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="118.0" fitWidth="124.0" layoutX="38.0" layoutY="69.0" opacity="0.43" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/beb2.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="logout" layoutX="15.0" layoutY="657.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Logout" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="200.0" prefHeight="720.0" prefWidth="880.0">
-               <children>
-                  <ImageView fitHeight="498.0" fitWidth="882.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/umaru.png" />
-                     </image>
-                  </ImageView>
-                  <Text fill="WHITE" layoutX="286.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sleepin Isn't A Crime" textAlignment="CENTER">
-                     <font>
-                        <Font name="Calibri Bold" size="36.0" />
-                     </font>
-                  </Text>
-                  <AnchorPane prefHeight="79.0" prefWidth="880.0">
-                     <children>
-                        <Text fill="WHITE" layoutX="21.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="352.85546875">
-                           <font>
-                              <Font name="Calibri" size="32.0" />
-                           </font>
-                        </Text>
-                        <Text fill="WHITE" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Admin : Phenom" wrappingWidth="352.85546875">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="add_students" layoutY="89.0" prefHeight="631.0" prefWidth="880.0" visible="false">
-                     <children>
-                        <TableView fx:id="tableView" layoutY="6.0" prefHeight="433.0" prefWidth="880.0" style="-fx-background-color: #0e0f13;">
-                          <columns>
-                            <TableColumn fx:id="noColumn" prefWidth="38.0" style="-fx-background-color: #0e0f13;" text="No" />
-                            <TableColumn fx:id="namaMahasiswaColumn" prefWidth="239.0" style="-fx-background-color: #0e0f13;" text="Nama Mahasiswa" />
-                              <TableColumn fx:id="nimColumn" prefWidth="210.0" style="-fx-background-color: #0e0f13;" text="NIM" />
-                              <TableColumn fx:id="jurusan" prefWidth="210.0" style="-fx-background-color: #0e0f13;" text="Jurusan" />
-                              <TableColumn fx:id="prodi" prefWidth="210.0" style="-fx-background-color: #0e0f13;" text="Prodi" />
-                              <TableColumn fx:id="totalBukuDipinjamColumn" prefWidth="210.0" style="-fx-background-color: #0e0f13;" text="Total Buku Dipinjam" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                        <Label layoutX="14.0" layoutY="467.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Nama Mahasiswa" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font></Label>
-                        <Label layoutX="14.0" layoutY="511.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="NIM" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="557.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Jurusan" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="namaTextfield" layoutX="158.0" layoutY="468.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Nama" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="nimTextfield" layoutX="158.0" layoutY="512.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Nama" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="jurusanTextfield" layoutX="158.0" layoutY="558.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Nama" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="392.0" layoutY="468.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Program Studi" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="prodiTextfield" layoutX="536.0" layoutY="468.0" prefHeight="36.0" prefWidth="214.0" promptText="informatika" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="add_data_students" layoutX="392.0" layoutY="515.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="136.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Submit" />
-                        <Label fx:id="res_student" layoutX="392.0" layoutY="567.0" prefHeight="25.0" prefWidth="353.0" textFill="WHITE">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children></AnchorPane>
-                  <AnchorPane fx:id="add_books" layoutY="89.0" prefHeight="631.0" prefWidth="880.0">
-                     <children>
-                        <TableView fx:id="tableView1" prefHeight="433.0" prefWidth="880.0" style="-fx-background-color: #0e0f13;">
-                           <columns>
-                              <TableColumn fx:id="no" prefWidth="38.0" style="-fx-background-color: #0e0f13;" text="No" />
-                              <TableColumn fx:id="id" prefWidth="139.0" style="-fx-background-color: #0e0f13;" text="ID" />
-                              <TableColumn fx:id="title" prefWidth="257.0" style="-fx-background-color: #0e0f13;" text="Title" />
-                              <TableColumn fx:id="author" prefWidth="279.0" style="-fx-background-color: #0e0f13;" text="Author" />
-                              <TableColumn fx:id="category" prefWidth="112.0" style="-fx-background-color: #0e0f13;" text="Category" />
-                              <TableColumn fx:id="stock" prefWidth="71.0" style="-fx-background-color: #0e0f13;" text="Stock" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                        <Label fx:id="res_buku" layoutX="390.0" layoutY="559.0" prefHeight="25.0" prefWidth="353.0" textFill="WHITE">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="add_data_books" layoutX="390.0" layoutY="510.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="136.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Submit" />
-                        <TextField fx:id="stockTextfield" layoutX="534.0" layoutY="466.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Jumlah Category" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="390.0" layoutY="466.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Stock" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="authorTextfield" layoutX="157.0" layoutY="510.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Nama Author" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="14.0" layoutY="553.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Category" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="titleTextfield" layoutX="157.0" layoutY="466.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Judul" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="14.0" layoutY="509.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Author" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="465.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-color: #17181e; -fx-label-padding: 6; -fx-background-radius: 0.5em;" text="Title" textFill="#717276">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="categoryTextfield" layoutX="157.0" layoutY="554.0" prefHeight="36.0" prefWidth="214.0" promptText="Masukan Category" style="-fx-background-color: #17181e; -fx-text-fill: white;">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
+            <Label layoutX="107.0" layoutY="14.0" prefHeight="37.0" prefWidth="186.0" style="-fx-alignment: center;" text="Admin Menu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="107.0" layoutY="62.0" prefHeight="37.0" prefWidth="186.0" style="-fx-alignment: center;" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="edit_profile" layoutX="90.0" layoutY="105.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Edit Profiles" />
+            <Button fx:id="show_log" layoutX="90.0" layoutY="167.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Show Log" />
+            <Button layoutX="90.0" layoutY="264.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Add Dosen" />
+            <Button layoutX="90.0" layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Edit Dosen" />
+            <Button layoutX="90.0" layoutY="430.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Add Mahasiswa" />
+            <Button layoutX="90.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #ababab; -fx-text-fill: #000;" text="Edit Mahasiswa" />
+            <Label layoutX="107.0" layoutY="227.0" prefHeight="37.0" prefWidth="186.0" style="-fx-alignment: center;" text="Dosen" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="107.0" layoutY="393.0" prefHeight="37.0" prefWidth="186.0" style="-fx-alignment: center;" text="Mahasiswa" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="back" layoutX="346.0" layoutY="13.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #d32e2e; -fx-text-fill: #FFF; -fx-background-radius: 50%;" text="X" />
          </children>
       </AnchorPane>
    </children>

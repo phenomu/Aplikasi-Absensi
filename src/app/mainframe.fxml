@@ -16,7 +16,7 @@
          <children>
             <VBox alignment="CENTER" layoutY="288.0" prefHeight="168.0" prefWidth="418.0">
                <children>
-                  <Button id="admin" fx:id="admin" alignment="CENTER" lineSpacing="3.0" mnemonicParsing="false" onAction="#login_dosen" prefHeight="43.0" prefWidth="227.0" text="Login Sebagai Dosen" textAlignment="CENTER">
+                  <Button id="admin" fx:id="dosen" alignment="CENTER" lineSpacing="3.0" mnemonicParsing="false" onAction="#login_dosen" prefHeight="43.0" prefWidth="227.0" text="Login Sebagai Dosen" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
@@ -43,6 +43,7 @@
                   <Font name="Calibri" size="18.0" />
                </font>
             </Text>
+            <Button id="admin" fx:id="admin" alignment="CENTER" layoutX="359.0" layoutY="14.0" lineSpacing="3.0" mnemonicParsing="false" onAction="#login_admin" opacity="0.0" prefHeight="43.0" prefWidth="40.0" text="Admin" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>

@@ -152,6 +152,7 @@ public class DashboardDosenController implements Initializable {
         sks.setCellValueFactory(new PropertyValueFactory<>("sks"));
         kelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
         ruang.setCellValueFactory(new PropertyValueFactory<>("ruang"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         jam.setCellValueFactory(new PropertyValueFactory<>("jam"));
         //Function untuk menambahkan button pada kolom presensi
