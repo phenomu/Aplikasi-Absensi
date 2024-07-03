@@ -71,5 +71,4 @@ public class DashboardAdminController implements Initializable {
         });
 
     }
-
 }

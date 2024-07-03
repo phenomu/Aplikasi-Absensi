@@ -83,5 +83,4 @@ public class Jadwal {
     public String getJam() {
         return jam;
     }
-    
 }
