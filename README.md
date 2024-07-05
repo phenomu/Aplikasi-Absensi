@@ -15,6 +15,7 @@
 - Add/Edit Absensi mahasiswa oleh dosen
 - Add/Edit Users (Dosen,Mahasiswa,Admin)
 - Filtering XSS / SQL Injection 
+- Add Logger (Any Login Activity)
 
 ## Update
 - Avoid Direct Object to prevent IDOR
