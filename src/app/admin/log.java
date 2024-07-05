@@ -96,7 +96,6 @@ public class log implements Initializable {
         tableView1.setItems(Log);
 
         logout.setOnAction(e -> {
-            Session.clearSession();
             try {
                 logout.getScene().getWindow().hide();
             } catch (Exception e1) {
