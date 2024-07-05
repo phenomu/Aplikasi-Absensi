@@ -29,6 +29,7 @@
                      </image>
                   </ImageView>
                   <Button fx:id="addData" layoutX="18.0" layoutY="290.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #4a9a62; -fx-text-fill: white;" text="Add data" textFill="#4a9a62" />
+                  <Button fx:id="log_absen" layoutX="19.0" layoutY="336.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #4a9a62; -fx-text-fill: white;" text="Log Absen" textFill="#4a9a62" />
                   <Button fx:id="hitungAK" layoutX="19.0" layoutY="650.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #4a9a62; -fx-text-fill: white;" text="Hitung Nilai Akhir" textFill="#4a9a62" />
                   <Button fx:id="logout" layoutX="18.0" layoutY="708.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #717276; -fx-text-fill: black;" text="Logout" />
                </children>

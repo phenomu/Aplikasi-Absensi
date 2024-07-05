@@ -61,6 +61,7 @@ public class DashboardDosenController implements Initializable {
     @FXML private Button logout;
     @FXML private Button addData;
     @FXML private Button hitungAK;
+    @FXML private Button log_absen;
     @FXML private TableColumn<JadwalDosen, Void> presensi;
     @FXML private TableColumn<JadwalDosen, Void> actions;
 
@@ -275,6 +276,21 @@ public class DashboardDosenController implements Initializable {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.setTitle("Program Penghitung Nilai Akhir");
+                stage.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        log_absen.setOnAction(e -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("log.fxml"));
+                Parent root;
+                root = (Parent) loader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Log Absen");
                 stage.show();
             } catch (IOException e1) {
                 e1.printStackTrace();

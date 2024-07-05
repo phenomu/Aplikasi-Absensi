@@ -12,9 +12,5 @@ public class Conn {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
     }
-    // String query = "SELECT * FROM mahasiswa WHERE nim = ? AND password = ?";
-    // statement = connection.prepareStatement(query);
-    // statement.setString(1, nim);
-    // statement.setString(2, password);
 
 }
